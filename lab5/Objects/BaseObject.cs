@@ -10,9 +10,7 @@ namespace lab5.Objects
 {
     class BaseObject
     {
-        public float X;
-        public float Y;
-        public float Angle;
+        public float X, Y, Angle;
         public Action<BaseObject, BaseObject> OnOverlap;
         public BaseObject(float x, float y, float angle)
         {

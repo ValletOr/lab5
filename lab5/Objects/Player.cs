@@ -10,7 +10,8 @@ namespace lab5.Objects
 {
     class Player : BaseObject
     {
-        public Action<BaseObject> OnTargetOverlap;
+        public float vX, vY;
+        public Action<Target> OnTargetOverlap;
         public Player(float x, float y, float angle) : base(x, y, angle)
         {
         }
