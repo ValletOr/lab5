@@ -32,7 +32,7 @@ namespace lab5.Objects
         public void SizeChange()
         {
             SizeSleep++;
-            if(SizeSleep == 5)
+            if(SizeSleep == 3)
             {
                 SizeSleep = 0;
                 Size--;
