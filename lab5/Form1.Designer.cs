@@ -29,13 +29,45 @@ namespace lab5
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.LogBox = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(720, 480);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            // 
+            // LogBox
+            // 
+            this.LogBox.Location = new System.Drawing.Point(738, 12);
+            this.LogBox.Name = "LogBox";
+            this.LogBox.Size = new System.Drawing.Size(348, 480);
+            this.LogBox.TabIndex = 1;
+            this.LogBox.Text = "";
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1098, 508);
+            this.Controls.Add(this.LogBox);
+            this.Controls.Add(this.pictureBox);
+            this.Name = "Form1";
+            this.Text = "Лабораторная работа №5";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.RichTextBox LogBox;
     }
 }
 
