@@ -18,6 +18,7 @@ namespace lab5
         Player player;
         Target target;
         Circle circle;
+        Circle circle2;
         public int points = 0;
         public Form1() 
         {
@@ -40,10 +41,12 @@ namespace lab5
             };
             target = new Target(pictureBox.Width / 2 + 100, pictureBox.Height / 2 + 100, 0);
             circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
-            
+            circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+
             objectList.Add(player);
             objectList.Add(target);
             objectList.Add(circle);
+            objectList.Add(circle2);
 
             UpdatePoints();
         }
@@ -54,7 +57,7 @@ namespace lab5
             g.Clear(Color.White);
 
             UpdatePlayer();
-            UpdateCircle();
+            UpdateCircles();
             UpdatePoints();
 
             foreach (var obj in objectList.ToList())
@@ -107,12 +110,17 @@ namespace lab5
             player.Y += player.vY;
         }
 
-        public void UpdateCircle()
+        public void UpdateCircles()
         {
             if(circle == null)
             {
                 circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
                 objectList.Add(circle);
+            }
+            if(circle2 == null)
+            {
+                circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+                objectList.Add(circle2);
             }
         }
 
