@@ -14,8 +14,11 @@ namespace lab5
     public partial class Form1 : Form
     { 
         List<BaseObject> objectList = new List<BaseObject>();
+        Random rand = new Random();
         Player player;
         Target target;
+        Circle circle;
+        public int points = 0;
         public Form1() 
         {
             InitializeComponent();
@@ -29,9 +32,20 @@ namespace lab5
                 objectList.Remove(t);
                 target = null;
             };
+            player.OnCircleOverlap += (c) =>
+            {
+                points++;
+                objectList.Remove(c);
+                circle = null;
+            };
             target = new Target(pictureBox.Width / 2 + 100, pictureBox.Height / 2 + 100, 0);
-            objectList.Add(target);
+            circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+            
             objectList.Add(player);
+            objectList.Add(target);
+            objectList.Add(circle);
+
+            UpdatePoints();
         }
 
         private void pictureBox_Paint(object sender, PaintEventArgs e)
@@ -40,6 +54,8 @@ namespace lab5
             g.Clear(Color.White);
 
             UpdatePlayer();
+            UpdateCircle();
+            UpdatePoints();
 
             foreach (var obj in objectList.ToList())
             {
@@ -89,6 +105,20 @@ namespace lab5
 
             player.X += player.vX;
             player.Y += player.vY;
+        }
+
+        public void UpdateCircle()
+        {
+            if(circle == null)
+            {
+                circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+                objectList.Add(circle);
+            }
+        }
+
+        public void UpdatePoints()
+        {
+            pointsCounter.Text = $"Points: {points}";
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -33,6 +33,7 @@ namespace lab5
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.LogBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pointsCounter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,17 +61,27 @@ namespace lab5
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pointsCounter
+            // 
+            this.pointsCounter.AutoSize = true;
+            this.pointsCounter.Location = new System.Drawing.Point(17, 17);
+            this.pointsCounter.Name = "pointsCounter";
+            this.pointsCounter.Size = new System.Drawing.Size(0, 19);
+            this.pointsCounter.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1098, 508);
+            this.Controls.Add(this.pointsCounter);
             this.Controls.Add(this.LogBox);
             this.Controls.Add(this.pictureBox);
             this.Name = "Form1";
             this.Text = "Лабораторная работа №5";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -79,6 +90,7 @@ namespace lab5
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.RichTextBox LogBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label pointsCounter;
     }
 }
 
