@@ -29,8 +29,10 @@ namespace lab5
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.LogBox = new System.Windows.Forms.RichTextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,6 +43,8 @@ namespace lab5
             this.pictureBox.Size = new System.Drawing.Size(720, 480);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox_Paint);
+            this.pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseClick);
             // 
             // LogBox
             // 
@@ -49,6 +53,12 @@ namespace lab5
             this.LogBox.Size = new System.Drawing.Size(348, 480);
             this.LogBox.TabIndex = 1;
             this.LogBox.Text = "";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 30;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -68,6 +78,7 @@ namespace lab5
 
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.RichTextBox LogBox;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
