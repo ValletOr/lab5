@@ -51,7 +51,7 @@ namespace lab5
             // 
             this.LogBox.Location = new System.Drawing.Point(738, 12);
             this.LogBox.Name = "LogBox";
-            this.LogBox.Size = new System.Drawing.Size(348, 480);
+            this.LogBox.Size = new System.Drawing.Size(426, 480);
             this.LogBox.TabIndex = 1;
             this.LogBox.Text = "";
             // 
@@ -73,7 +73,7 @@ namespace lab5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 508);
+            this.ClientSize = new System.Drawing.Size(1175, 508);
             this.Controls.Add(this.pointsCounter);
             this.Controls.Add(this.LogBox);
             this.Controls.Add(this.pictureBox);

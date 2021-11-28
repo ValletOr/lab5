@@ -12,7 +12,7 @@ namespace lab5.Objects
     {
         public float vX, vY;
         public Action<Target> OnTargetOverlap;
-        public Action<Circle> OnCircleOverlap;
+        public Action<BaseObject> OnCircleOverlap;
         public Player(float x, float y, float angle) : base(x, y, angle)
         {
         }
@@ -34,7 +34,7 @@ namespace lab5.Objects
             }
             else if (obj is Circle)
             {
-                OnCircleOverlap(obj as Circle);
+                OnCircleOverlap(obj);
             }
         }
 

@@ -11,12 +11,20 @@ namespace lab5.Objects
     class BaseObject
     {
         public float X, Y, Angle;
+        public int Id = 0;
         public Action<BaseObject, BaseObject> OnOverlap;
         public BaseObject(float x, float y, float angle)
         {
             X = x;
             Y = y;
             Angle = angle;
+        }
+        public BaseObject(float x, float y, float angle, int id)
+        {
+            X = x;
+            Y = y;
+            Angle = angle;
+            Id = id;
         }
         public Matrix GetTransform()
         {

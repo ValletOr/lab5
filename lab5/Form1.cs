@@ -36,12 +36,25 @@ namespace lab5
             player.OnCircleOverlap += (c) =>
             {
                 points++;
+                if (c.Id == 0) circle = null;
+                else if (c.Id == 1) circle2 = null;
                 objectList.Remove(c);
-                circle = null;
+                c = null;
             };
             target = new Target(pictureBox.Width / 2 + 100, pictureBox.Height / 2 + 100, 0);
-            circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
-            circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+            circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0, 0);
+            circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0, 1);
+            
+            circle.SizeIsZero += () =>
+            {
+                objectList.Remove(circle);
+                circle = null;
+            };
+            circle2.SizeIsZero += () =>
+            {
+                objectList.Remove(circle2);
+                circle2 = null;
+            };
 
             objectList.Add(player);
             objectList.Add(target);
@@ -98,8 +111,8 @@ namespace lab5
                 dx /= length;
                 dy /= length;
 
-                player.vX = dx * 3f;
-                player.vY = dy * 3f;
+                player.vX = dx * 3.5f;
+                player.vY = dy * 3.5f;
 
                 player.Angle = 90f - (float)Math.Atan2(player.vX, player.vY) * 180f / (float)Math.PI;
             }
@@ -114,13 +127,32 @@ namespace lab5
         {
             if(circle == null)
             {
-                circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+                circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0, 0);
+                circle.SizeIsZero += () =>
+                {
+                    objectList.Remove(circle);
+                    circle = null;
+                };
                 objectList.Add(circle);
             }
-            if(circle2 == null)
+            else
             {
-                circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0);
+                circle.SizeChange();
+            }
+
+            if (circle2 == null)
+            {
+                circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0, 1);
+                circle2.SizeIsZero += () =>
+                {
+                    objectList.Remove(circle2);
+                    circle2 = null;
+                };
                 objectList.Add(circle2);
+            }
+            else
+            {
+                circle2.SizeChange();
             }
         }
 
