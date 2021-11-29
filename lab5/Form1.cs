@@ -23,6 +23,7 @@ namespace lab5
         public Form1() 
         {
             InitializeComponent();
+            //Инициализация игрока и его делегатов
             player = new Player(pictureBox.Width / 2, pictureBox.Height / 2, 0);
             player.OnOverlap += (p, obj) =>
             {
@@ -41,7 +42,9 @@ namespace lab5
                 objectList.Remove(c);
                 c = null;
             };
+            //инизилизация мишени
             target = new Target(pictureBox.Width / 2 + 100, pictureBox.Height / 2 + 100, 0);
+            //инициализация собираемых кружков и их делегатов
             circle = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0, 0);
             circle2 = new Circle(rand.Next(pictureBox.Width), rand.Next(pictureBox.Height), 0, 1);
             
@@ -56,14 +59,17 @@ namespace lab5
                 circle2 = null;
             };
 
+            //добавление всех объектов в список
             objectList.Add(player);
             objectList.Add(target);
             objectList.Add(circle);
             objectList.Add(circle2);
 
+            //обновление отображаемых очков
             UpdatePoints();
         }
 
+        //отрисовка PictureBox
         private void pictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -73,6 +79,7 @@ namespace lab5
             UpdateCircles();
             UpdatePoints();
 
+            //Проверка коллизий
             foreach (var obj in objectList.ToList())
             {
                 if ((obj != player) && player.Overlaps(obj, g))
@@ -82,6 +89,7 @@ namespace lab5
                 }
             }
 
+            //Отрисовка объектов
             foreach (var obj in objectList.ToList())
             {
                 g.Transform = obj.GetTransform();
@@ -164,6 +172,16 @@ namespace lab5
         private void timer1_Tick(object sender, EventArgs e)
         {
             pictureBox.Invalidate();
+        }
+
+        private void infBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Сделать приложение по методичке обработка событий и допилить его.\n" +
+                "Сделать в обязательном порядке оба зеленых задания и на выбор одно или несколько из 3 - 6 заданий\n" +
+                "Задача №4.\n" +
+                "Постепенно уменьшать зеленый кружок.\n" + 
+                "Если размер кружка становится нулевым, то перемещать на новую позицию и задавать ему новый начальный размер.\n" +
+                "Размер хранить в зеленом кружке, событие уменьшения до нуля должен генерировать зеленый кружок");
         }
     }
 }

@@ -34,6 +34,7 @@ namespace lab5
             this.LogBox = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pointsCounter = new System.Windows.Forms.Label();
+            this.infBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,11 +70,22 @@ namespace lab5
             this.pointsCounter.Size = new System.Drawing.Size(0, 19);
             this.pointsCounter.TabIndex = 2;
             // 
+            // infBtn
+            // 
+            this.infBtn.Location = new System.Drawing.Point(21, 498);
+            this.infBtn.Name = "infBtn";
+            this.infBtn.Size = new System.Drawing.Size(242, 33);
+            this.infBtn.TabIndex = 3;
+            this.infBtn.Text = "Информация о программе";
+            this.infBtn.UseVisualStyleBackColor = true;
+            this.infBtn.Click += new System.EventHandler(this.infBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 508);
+            this.ClientSize = new System.Drawing.Size(1175, 543);
+            this.Controls.Add(this.infBtn);
             this.Controls.Add(this.pointsCounter);
             this.Controls.Add(this.LogBox);
             this.Controls.Add(this.pictureBox);
@@ -91,6 +103,7 @@ namespace lab5
         private System.Windows.Forms.RichTextBox LogBox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label pointsCounter;
+        private System.Windows.Forms.Button infBtn;
     }
 }
 
